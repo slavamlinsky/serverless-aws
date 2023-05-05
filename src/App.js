@@ -5,17 +5,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Any Changes</h1>
+          <img src={logo} className="App-logo" alt="logo" />        
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React in less than a day
+          React is a perfect marriage of JavaScript and MarkUp
         </a>
       </header>
     </div>
