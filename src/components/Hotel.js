@@ -1,8 +1,38 @@
-import React from 'react'
-import servicesData from './data/services.json'
-import amenitiesData from './data/amenities.json'
+import React, {useState, useEffect} from 'react'
+//import servicesData from './data/services.json'
+//import amenitiesData from './data/amenities.json'
 
 const Hotel = () => {
+
+  const [servicesData, setServicesData] = useState([]);
+  const [amenitiesData, setAmenitiesData] = useState([]);
+
+  const loadServicesData = async () => {
+    // Query the API GateWay
+    const resp = await fetch('https://mtf59321na.execute-api.eu-central-1.amazonaws.com/Production/services');
+    let jsonData = await resp.json();    
+
+    // Assign responce data to our state variable
+    setServicesData(jsonData);
+  }
+
+  const loadAmenitiesData = async () => {
+    // Query the API GateWay
+    const resp = await fetch('https://mtf59321na.execute-api.eu-central-1.amazonaws.com/Production/amenities');
+    let jsonData = await resp.json();    
+
+    // Assign responce data to our state variable
+    setAmenitiesData(jsonData);
+  }
+
+  useEffect(() => {
+    // Loading the menuLinks data for the API GateWay
+    loadServicesData();
+    loadAmenitiesData();
+
+    // Other side effects code goes here
+  }, [])
+
   return (
     <div className="scene" id="hotelinfo">
         <article className="heading">
